@@ -1,22 +1,25 @@
-# This file is part of joluizquierdo/github-action-rust-template.
-# Copyright (C) 2025 joluizquierdo
-# Licensed under the GNU GPL v3. See LICENSE file in root directory.
----
-action_name: "Your action name here"
+name: "Your action name here"
 description: "A brief description of your action."
 author: "Your Name"
 inputs:
-  - name: "input1"
+  input1:
     description: "Description for input1."
     required: true
-  - name: "input2"
+    default: "none"
+  input2:
     description: "Description for input2."
     required: false
     default: "default_value2"
 outputs:
-  - name: "output1"
+  output1:
     description: "Description for output1."
     value: "default_output_value1"
-  - name: "output2"
+  output2:
     description: "Description for output2."
     value: "default_output_value2"
+runs:
+  using: "composite"
+  steps:
+    - name: "hello world"
+      shell: bash
+      run: echo "Hello, world!"
